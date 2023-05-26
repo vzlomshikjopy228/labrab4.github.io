@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+    .form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 50px;
+        background-color: #FFF2CB;
+        border: 15px solid #E6B0AA;
+        border-radius: 150px;
+    }
+    
+    .form_header {
+        text-align: center;
+        border-color: yellow;
+    }
+    
+    .form_header h2 {
+        margin-top: 0;
+        color: #DA9E00;
+    }
+    
+    .form_body {
+        display: flex;
+    }
+    
+    .form_picture {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background-color: none;
+        margin-right: 10px;
+        opacity: 20%;
+    }
+    .form__picture-duck{
+        width: 500px;
+        height:500px;
+    }
+    .form_group1,
+    .form_group2 {
+        margin-bottom: 10px;
+    }
+    
+    .form_group1 label,
+    .form_group1 span,
+    .form_group2 label {
+        color:#DA9E00;
+    }
+    
+    .form_control {
+        width: 100%;
+        padding: 8px;
+        border: 4px solid #f8bfd5;
+        border-radius: 40px;
+        margin-top: 20px;
+    }
+    
+    .form_control:focus {
+        outline: none;
+        border-color: #E6B0AA;
+    }
+
+    .form_group1{
+        margin-bottom: 50px;
+    }
+
+    #form_login{
+        margin-top:20px;
+    }
+
+    #checkbox_range {
+        width: 100%;
+    }
+    
+    #checkbox_age {
+        font-size: 30px;
+        margin-top: 5px;
+    }
+
+    .form_group2 input[type="file"] {
+        margin-top: 50px;
+    }
+    
+    input[type="submit"] {
+        background-color: pink;
+        color: #ffffff;
+        width: 200px;
+        border: 5px solid #FF89DE;
+        margin-top: 30px;
+        margin-left: 90px;
+        border-color:#d82fa8;
+        padding: 20px;
+        border-radius: 100px;
+        cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+        background-color: #FF89DE;
+    }
+    
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+    
+    select:focus {
+        outline: none;
+        background-color: #FFECFA; 
+        border-color: #FFECFA;
+    }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+</head>
+<body>
+    <form class="form">
+        <div class="form_header">
+            <h2>Регистрация</h2> 
+        </div>
+        <hr>
+        <div class="form_body">
+            <div class="form_picture">
+                <img src = "уточка.png" class="form__picture-duck">
+            </div>
+        </div>
+            <div class="form_col">
+                <div class="form_group1">
+                    <label for="form_login">Логин</label><br />
+                    <input type="text" name="form_login" id="first-name" class="form_control"><br />
+                    <label for="form_password">Пароль</label><br />
+                    <input type="password" name="form_password" id="form_password" class="form_control"><br />
+                    <label for="checkbox_range">Выберите возраст</label><br />
+                    <input type="range" id="checkbox_range" min="0" max="100" step="1" value="0" class="form_control"><br />
+                    <span id="checkbox_age">0 лет</span>
+                    <script>
+                        var range = document.getElementById('checkbox_range');
+                        var age = document.getElementById('checkbox_age');
+                        range.addEventListener('input', function() {
+                            age.textContent = range.value + " лет";
+                        });
+                    </script>
+                </div>
+                <div class="form_group2">
+                    <label for="email">Почта</label><br />
+                    <input type="email" id="form_email" placeholder="college@mail.ru" class="form_control">
+                    <input type="radio" id="form_man" name="form_choose" value="man">
+                    <label for="form_man">Мужчина</label>
+                    <input type="radio" id="form_woman" name="form_choose" value="woman">
+                    <label for="form_woman">Женщина</label><br />
+                    <label for="form_file">Прикрепите документ удостоверяющий вашу личность</label><br />
+                    <input type="file" id="form_file">
+                    <br>
+                    <label for="form_select">Выберите национальность</label><br>
+                    <select id="form_select" class="form_control">
+                        <option value="option1">Русский</option>
+                        <option value="option2">Немец</option>
+                        <option value="option3">Американец</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Отправить" class="form_control">
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
